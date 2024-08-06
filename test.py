@@ -1,22 +1,12 @@
-import numpy as np
-import os
-
-# Define paths
-directory_loc = os.listdir("C://Users//Anirudh//Documents//GitHub//BoneFractureDetection//BoneFractureData2//bone fracture detection.v4-v4.yolov8//test//images")
-image_path = 'C://Users//Anirudh//Documents//GitHub//BoneFractureDetection//BoneFractureData2//bone fracture detection.v4-v4.yolov8//test//images'
-labels_path = 'C://Users//Anirudh//Documents//GitHub//BoneFractureDetection//BoneFractureData2//bone fracture detection.v4-v4.yolov8//test//labels'
-
-# Check if paths exist
-if not os.path.exists(image_path):
-    raise FileNotFoundError(f"The path {image_path} does not exist.")
-if not os.path.exists(labels_path):
-    raise FileNotFoundError(f"The path {labels_path} does not exist.")
-
-# Load data
+file_path = r'C:\Users\Anirudh\Documents\GitHub\BoneFractureDetection\BoneFractureData2\BoneFractureYolo8\train\images'  # Replace this with the path to your file
+labels_path = r'C:\Users\Anirudh\Documents\GitHub\BoneFractureDetection\BoneFractureData2\BoneFractureYolo8\train\labels'
 try:
-    images = np.load()
-    labels = np.load(labels_path)
-except PermissionError as e:
-    print(f"PermissionError: {e}")
+    print(len(file_path))
+    print(len(labels_path))
+except FileNotFoundError:
+    print(f"FileNotFoundError: The file at '{file_path}' does not exist.")
+except PermissionError:
+    print(f"PermissionError: You do not have permission to access the file at '{file_path}'.")
 except Exception as e:
-    print(f"An error occurred: {e}")
+    print(f"An unexpected error occurred: {e}")
+
